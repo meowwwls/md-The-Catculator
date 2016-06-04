@@ -1,0 +1,377 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  background: -webkit-radial-gradient(circle, #6f85a6, #1c232d);
+  background: radial-gradient(circle, #6f85a6, #1c232d);
+}
+
+.page-head {
+  display: none;
+}
+
+.calculator {
+  min-height: 100vh;
+  max-width: 36rem;
+  margin: auto;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+}
+
+.calculator button {
+  font-family: 'Dosis', sans-serif;
+}
+
+.face {
+  min-height: calc(40vh - 4rem);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: -webkit-radial-gradient(circle, #888d93, #565a5f);
+  background: radial-gradient(circle, #888d93, #565a5f);
+  position: relative;
+}
+
+.face .row {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  position: relative;
+}
+
+.eye {
+  width: 4rem;
+  height: 4rem;
+  background: #bad657;
+  border-radius: 0% 50% 0% 50%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 10px 5px 20px rgba(0, 0, 0, 0.2), inset -10px -5px 30px rgba(0, 0, 0, 0.2);
+}
+.eye::before {
+  content: '';
+  position: absolute;
+  width: 0.35rem;
+  height: 3rem;
+  background: #212121;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+  left: 50%;
+  top: 50%;
+  border-radius: 100%;
+}
+
+.nose {
+  height: 1.25rem;
+  width: 1.25rem;
+  background: #ff8cab;
+  position: relative;
+  z-index: 2;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  box-shadow: inset 12px 11px 5px rgba(0, 0, 0, 0.2);
+}
+.nose::before, .nose::after {
+  content: '';
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  background: #ffa6bd;
+  border-radius: 70% 20%;
+}
+.nose::before {
+  background: #ffa6bd;
+  bottom: 0px;
+  left: -50%;
+}
+.nose::after {
+  top: -50%;
+  right: 0px;
+}
+
+.whiskers {
+  position: relative;
+  width: 100%;
+}
+
+.whisker {
+  position: absolute;
+  height: 1px;
+  width: 5rem;
+  background: #bbb;
+  top: 50%;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  z-index: 1;
+}
+.whisker.right-whisker {
+  background: #bbb;
+  left: 50%;
+}
+.whisker.right-whisker::before, .whisker.right-whisker::after {
+  content: '';
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  background: #bbb;
+}
+.whisker.right-whisker::before {
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+  top: -1rem;
+}
+.whisker.right-whisker::after {
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+  bottom: -1rem;
+}
+.whisker.left-whisker {
+  background: orangr;
+  right: 50%;
+}
+.whisker.left-whisker::before, .whisker.left-whisker::after {
+  content: '';
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  background: #bbb;
+}
+.whisker.left-whisker::before {
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+  top: -1rem;
+}
+.whisker.left-whisker::after {
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+  bottom: -1rem;
+}
+
+.calc_body {
+  min-height: 53vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.screen {
+  width: 100%;
+  height: 4rem;
+  text-align: right;
+  color: #eee;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  padding: .5rem;
+  background: #fb1d9b;
+  box-shadow: inset 0 -1px 6px rgba(0, 0, 0, 0.3);
+  line-height: 3rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  border: 0;
+  font-family: 'Dosis', sans-serif;
+}
+
+button:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+
+.col-9 {
+  width: 75%;
+  background: -webkit-linear-gradient(#888d93, #565a5f);
+  background: linear-gradient(#888d93, #565a5f);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.col-3 {
+  width: 25%;
+  background: #2f3b4d;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  min-height: 53vh;
+}
+
+.calc_body .row {
+  background: transparent;
+  text-align: center;
+  min-height: 12vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+button {
+  outline: none;
+  -webkit-transition: background .2s ease-in-out;
+  transition: background .2s ease-in-out;
+}
+
+.top-row {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.top-row button[data-func] {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-height: 12vh;
+  background: #43536c;
+  border: none;
+  color: #eee;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+}
+.top-row button[data-func]:not(:last-child) {
+  border-right: 1px solid #6e6980;
+}
+.top-row button[data-func]:focus, .top-row button[data-func]:hover {
+  background: #2f3b4d;
+}
+
+.num {
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+
+.op button[data-op] {
+  color: #eee;
+  background: #2f3b4d;
+  font-size: 2rem;
+  width: 100%;
+  min-height: 12vh;
+  border: none;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.op button[data-op]:not(:last-child) {
+  border-bottom: 1px solid #414141;
+}
+.op button[data-op]:focus, .op button[data-op]:hover {
+  background: #43536c;
+}
+
+#num-pad {
+  padding-bottom: 0.25em;
+}
+
+.num button[data-num] {
+  height: 3.75rem;
+  width: 3.75rem;
+  border-radius: 50%;
+  border: none;
+  border: 2px solid #6e6980;
+  background: #fb1d9b;
+  color: #eee;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-top: .5rem;
+  font-size: 1.2rem;
+}
+.num button[data-num]:focus, .num button[data-num]:hover {
+  background: #2f3b4d;
+}
+
+@media screen and (min-width: 540px) {
+  body {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .page-head {
+    display: block;
+    min-height: 10vh;
+    width: 100%;
+  }
+  .page-head h1 {
+    margin-top: 0;
+    text-align: center;
+    color: #2f3b4d;
+    padding: 1rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    font-weight: 300;
+    background: #eee;
+    text-transform: uppercase;
+    box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .face {
+    height: 45vh;
+  }
+
+  .whisker {
+    width: 6rem;
+  }
+
+  .calculator {
+    width: 100%;
+  }
+}
