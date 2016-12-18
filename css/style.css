@@ -2,10 +2,13 @@
   box-sizing: border-box;
 }
 
+html, body {
+  min-height: 100%;
+}
+
 body {
   padding: 0;
   margin: 0;
-  min-height: 100vh;
   background: -webkit-radial-gradient(circle, #6f85a6, #1c232d);
   background: radial-gradient(circle, #6f85a6, #1c232d);
 }
@@ -16,12 +19,13 @@ body {
 
 .calculator {
   min-height: 100vh;
-  max-width: 36rem;
+  max-width: 37.5rem;
   margin: auto;
   box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
 }
 
-.calculator button {
+button,
+input {
   font-family: 'Dosis', sans-serif;
 }
 
@@ -192,7 +196,6 @@ body {
   line-height: 3rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border: 0;
-  font-family: 'Dosis', sans-serif;
 }
 
 button:active {
@@ -372,6 +375,6 @@ button {
   }
 
   .calculator {
-    width: 100%;
+    width: 80%;
   }
 }
